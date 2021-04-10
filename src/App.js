@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import axios from "axios"
 import React from "react"
 
@@ -23,14 +22,8 @@ console.log(process.env.REACT_APP_SARAH)
 
   return (
     <div>
+    HELLO A FRONTEND!
     {data.hej}
-=======
-
-function App() {
-  return (
-    <div>
-    hej
->>>>>>> 0c7ed9ee7cbfb5864b49b2da8c4f270575c31d13
     </div>
   );
 }
