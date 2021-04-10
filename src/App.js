@@ -15,6 +15,7 @@ const App = () => {
 
     })
     setIsLoading(false)
+    console.log(response)
   },[]);
 
 console.log(process.env.REACT_APP_SARAH)
