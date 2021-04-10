@@ -23,7 +23,7 @@ console.log(process.env.REACT_APP_SARAH)
 
   return (
     <div>
-    HELLO A FRONTEND!
+    HELLO A FRONTEND! aswdjklajsdjk alskd
     {data.hej}
     </div>
   );
