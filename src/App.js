@@ -22,7 +22,7 @@ console.log(process.env.REACT_APP_SARAH)
   if (isLoading) return <h1>Loading...</h1>
 
   return (
-    <div>
+    <div className="text-blue-300 text-7xl">
     HELLO A FRONTEND! aswdjklajsdjk alskd
     {data.hej}
     </div>
