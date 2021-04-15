@@ -28,9 +28,6 @@ export default function Form({ setData }) {
 
   }
 
-
-
-
   const properties = {
     mass: { name: "Massa [kg/m]", value: 19000 },
     youngs_modulus: { name: "E-modul [Pa]", value: 200e9 },
