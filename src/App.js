@@ -3,8 +3,8 @@ import Form from './components/Form'
 
 const App = () => {
 
-  //const [data, setData] = React.useState({})
-
+  const [data, setData] = React.useState({})
+  console.log(data)
   return (
     <div className="flex flex-col items-center">
     HELLO A FRONTEND!
