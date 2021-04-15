@@ -33,9 +33,9 @@ export default function Form({ setData }) {
 
   const properties = {
     mass: { name: "Massa [kg/m]", value: 19000 },
-    youngs_modulus: { name: "E-modul []", value: 200e9 },
-    moment_of_inertia: { name: "Tröghetsmoment []", value: 0.86 },
-    damping_ratio: { name: "Dämpkvot", value: 0.005 },
+    youngs_modulus: { name: "E-modul [Pa]", value: 200e9 },
+    moment_of_inertia: { name: "Tröghetsmoment [m^4]", value: 0.86 },
+    damping_ratio: { name: "Dämpkvot [-]", value: 0.005 },
     length: { name: "Längd [m]", value: 48.0 },
     element_size: { name: "Elementstorlek [m]", value: 0.1 },
     mode_numbers: { name: "Antal moder [-]", value: [1, 2, 3] },
