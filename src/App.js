@@ -6,7 +6,7 @@ const App = () => {
   const [data, setData] = React.useState({})
   console.log(data)
   return (
-    <div className="flex flex-col items-center align-middle justify-center">
+    <div className="flex flex-col items-center bg-green-100">
     Bridge response simulator
     <Form setData={setData}/>
     {/* <Graph data={data}/> */}

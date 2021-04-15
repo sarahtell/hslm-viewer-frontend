@@ -47,7 +47,7 @@ export default function Form({ setData }) {
               <p className="text-black text-xs">{props.name}</p>
 
               <input
-                className="border border-solid"
+                className="border border-solid rounded-md"
                 type="text"
                 value={props.value}
                 placeholder={props.value}
