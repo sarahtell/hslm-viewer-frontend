@@ -3,9 +3,9 @@ import axios from "axios"
 
 
 function getModalProperties(formData) {
-    console.log(formData);
+    console.log(formData)
     const response = axios
-    .get('http://127.0.0.1:5000/', {headers: "Bearer 12903109230+9123091" })
+    .post('http://127.0.0.1:5000/', {data: formData, headers: {}})
     .then(response => {
       return response.data
     })
@@ -20,9 +20,10 @@ export default function Form({ setData }) {
     formState: { errors },
   } = useForm();
   
-  const onSubmit = (formData) => {
+  const onSubmit = async (formData) => {
 
-    const data = getModalProperties(formData)
+    const data = await getModalProperties(formData)
+    console.log("Data", data);
 
     setData(data);
 
@@ -47,7 +48,7 @@ export default function Form({ setData }) {
               <p className="text-black text-xs">{props.name}</p>
 
               <input
-                className="border border-solid rounded-md"
+                className="border border-solid"
                 type="text"
                 value={props.value}
                 placeholder={props.value}
