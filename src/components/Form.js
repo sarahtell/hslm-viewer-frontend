@@ -3,17 +3,17 @@ import axios from "axios"
 
 
 function getModalProperties(formData) {
-    console.log(formData)
+    console.log(formData);
     const response = axios
     .post('http://127.0.0.1:5000/', {data: formData, headers: {}})
     .then(response => {
       return response.data
-    })
+    }).catch(e => console.error(e))
     return response
 }
 
 
-export default function Form({ setData }) {
+export default function Form({ setData, setIsLoading }) {
   const {
     register,
     handleSubmit,
@@ -22,10 +22,9 @@ export default function Form({ setData }) {
   
   const onSubmit = async (formData) => {
 
-    const data = await getModalProperties(formData)
-    console.log("Data", data);
-
-    setData(data);
+    const response = await getModalProperties(formData)
+    setData(response.data);
+    setIsLoading(false);
 
   }
 
@@ -36,7 +35,7 @@ export default function Form({ setData }) {
     damping_ratio: { name: "Dämpkvot [-]", value: 0.005 },
     length: { name: "Längd [m]", value: 48.0 },
     element_size: { name: "Elementstorlek [m]", value: 0.1 },
-    mode_numbers: { name: "Antal moder [-]", value: [1, 2, 3] },
+    mode_numbers: { name: "Antal moder [-]", value: 3 },
   };
 
   return (
@@ -49,11 +48,12 @@ export default function Form({ setData }) {
 
               <input
                 className="border border-solid"
-                type="text"
+                type="number"
                 value={props.value}
                 placeholder={props.value}
                 {...register(propertyName, {
                   required: "Fält måste vara ifyllt.",
+                  valueAsNumber: true,
                 })}
               />
 
