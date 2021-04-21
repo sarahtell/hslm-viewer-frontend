@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import axios from "axios"
+import BeatLoader from "react-spinners/BeatLoader";
 
 
 function getModalProperties(formData) {
     console.log(formData);
     const response = axios
-    .post('http://127.0.0.1:5000/', {data: formData, headers: {}})
+    .post(process.env.REACT_APP_ENDPOINT, {data: formData, headers: {}})
     .then(response => {
       return response.data
     }).catch(e => console.error(e))
@@ -13,7 +14,7 @@ function getModalProperties(formData) {
 }
 
 
-export default function Form({ setData, setIsLoading }) {
+export default function Form({ setData, setIsLoading, loading }) {
   const {
     register,
     handleSubmit,
@@ -21,7 +22,7 @@ export default function Form({ setData, setIsLoading }) {
   } = useForm();
   
   const onSubmit = async (formData) => {
-
+    setIsLoading(true)
     const response = await getModalProperties(formData)
     setData(response.data);
     setIsLoading(false);
@@ -29,13 +30,15 @@ export default function Form({ setData, setIsLoading }) {
   }
 
   const properties = {
-    mass: { name: "Massa [kg/m]", value: 19000 },
+    bridge_mass: { name: "Massa [kg/m]", value: 18400 },
     youngs_modulus: { name: "E-modul [Pa]", value: 200e9 },
-    moment_of_inertia: { name: "Tröghetsmoment [m^4]", value: 0.86 },
+    moment_of_inertia: { name: "Tröghetsmoment [m^4]", value: 0.61 },
     damping_ratio: { name: "Dämpkvot [-]", value: 0.005 },
-    length: { name: "Längd [m]", value: 48.0 },
+    bridge_length: { name: "Längd [m]", value: 42.0 },
     element_size: { name: "Elementstorlek [m]", value: 0.1 },
     mode_numbers: { name: "Antal moder [-]", value: 3 },
+    train_speed: { name: "Tåghastighet [m/s]", value: 41 },
+    hslm_number: { name: "Typ av HSLM-tåg [1-10]", value: 4 },
   };
 
   return (
@@ -45,7 +48,7 @@ export default function Form({ setData, setIsLoading }) {
           return (
             <div className="flex flex-col">
               <p className="text-black text-xs">{props.name}</p>
-
+      
               <input
                 className="border border-solid"
                 type="number"
@@ -71,7 +74,7 @@ export default function Form({ setData, setIsLoading }) {
           className="bg-green-500 text-white p-2 rounded-md"
           type="submit"
         >
-          Beräkna
+          {loading ? <BeatLoader color={"#333"} loading={true} size={10} /> : <p>Beräkna</p> }
         </button>
       </div>
     </form>
