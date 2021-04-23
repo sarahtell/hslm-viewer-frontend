@@ -1,3 +1,4 @@
+import React from 'react'
 import { useForm } from "react-hook-form";
 import axios from "axios"
 import BeatLoader from "react-spinners/BeatLoader";
@@ -15,9 +16,11 @@ function getModalProperties(formData) {
 
 
 export default function Form({ setData, setIsLoading, loading }) {
+
   const {
     register,
     handleSubmit,
+
     formState: { errors },
   } = useForm();
   
@@ -39,20 +42,19 @@ export default function Form({ setData, setIsLoading, loading }) {
     mode_numbers: { name: "Antal moder [-]", value: 3 },
     train_speed: { name: "Tåghastighet [m/s]", value: 41 },
     hslm_number: { name: "Typ av HSLM-tåg [1-10]", value: 4 },
-  };
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col py-5 space-y-5">
+    <form class onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-wrap flex-row">
         {Object.entries(properties).map(([propertyName, props]) => {
           return (
-            <div className="flex flex-col">
+            <div className="flex flex-col m-5">
               <p className="text-black text-xs">{props.name}</p>
-      
               <input
-                className="border border-solid"
-                type="number"
-                value={props.value}
+                className="border border-solid p-2 rounded-md text"
+                type="text"
+                defaultValue={props.value}
                 placeholder={props.value}
                 {...register(propertyName, {
                   required: "Fält måste vara ifyllt.",
