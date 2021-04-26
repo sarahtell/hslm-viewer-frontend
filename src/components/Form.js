@@ -73,10 +73,10 @@ export default function Form({ setData, setIsLoading, loading }) {
         })}
 
         <button
-          className="bg-green-500 text-white p-2 h-30 rounded-md"
+          className="bg-gray-700 text-white p-2 h-30 rounded-md"
           type="submit"
         >
-          {loading ? <BeatLoader color={"#333"} loading={true} size={10} /> : <p>Beräkna</p> }
+          {loading ? <BeatLoader color="white" loading={true} size={10} /> : <p>Beräkna</p> }
         </button>
       </div>
     </form>
