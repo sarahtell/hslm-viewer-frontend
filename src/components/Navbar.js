@@ -3,10 +3,9 @@ import { Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
-    <nav className="bg-pink-300 flex justify-between">
-        <Link className="p-5" to='/'>Home</Link>
-        <Link className="p-5" to='/resume'>Resume</Link>
-        <Link className="p-5" to='/bridgeresponse'>Project</Link>
+    <nav className="bg-gray-700 text-white flex justify-between">
+        <Link className="p-3" to='/'>Sarah Tell</Link>
+        <Link className="p-3" to='/bridgeresponse'>Projects</Link>
     </nav>
   );
 };
