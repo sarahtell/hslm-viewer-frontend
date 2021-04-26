@@ -40,7 +40,7 @@ export default function Form({ setData, setIsLoading, loading }) {
     bridge_length: { name: "Längd [m]", value: 42.0 },
     element_size: { name: "Elementstorlek [m]", value: 0.1 },
     mode_numbers: { name: "Antal moder [-]", value: 3 },
-    train_speed: { name: "Tåghastighet [m/s]", value: 41 },
+    train_speed: { name: "Tåghastighet [m/s]", value: 47 },
     hslm_number: { name: "Typ av HSLM-tåg [1-10]", value: 4 },
   }
 
@@ -73,7 +73,7 @@ export default function Form({ setData, setIsLoading, loading }) {
         })}
 
         <button
-          className="bg-green-500 text-white p-2 rounded-md"
+          className="bg-green-500 text-white p-2 h-30 rounded-md"
           type="submit"
         >
           {loading ? <BeatLoader color={"#333"} loading={true} size={10} /> : <p>Beräkna</p> }
