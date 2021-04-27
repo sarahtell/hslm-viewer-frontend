@@ -5,6 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 
+const LinkElement = (props) => {
+    return (<Link className="text-gray-700 font-bold" to={props.path}>{props.text}</Link>);
+}
+
+
 const Startpage = () => {
   return (
     <Layout>
@@ -19,13 +24,9 @@ const Startpage = () => {
           Sarah Tell
         </h1>
         <h2 className="mt-5 text-4xl justify-center"> I like coding.</h2>
-        <h3 className="flex flex-col justify-center mt-5">
-          Head to{" "}
-          <Link className="text-gray-700 font-bold" to="/bridgeresponse">
-            Projects
-          </Link>{" "}
-          to check out my bridge response simulator for passing trains.
-        </h3>
+        <p className="justify-center mt-5 inline-block w-5/6">
+          Head to <LinkElement text="Projects" path="/bridgeresponse"/> to check out my bridge response simulator for passing trains.
+        </p>
         <a className="bg-gray-700 text-white p-3 mt-20 rounded-md" href={pdf}>
           Download CV
         </a>
