@@ -24,9 +24,9 @@ const Startpage = () => {
           Sarah Tell
         </h1>
         <h2 className="mt-5 text-4xl justify-center"> I like coding.</h2>
-        <p className="justify-center mt-5 inline-block w-5/6">
+        <div className="w-full flex justify-center text-center"><h3 className="mt-5 inline-block w-5/6">
           Head to <LinkElement text="Projects" path="/bridgeresponse"/> to check out my bridge response simulator for passing trains.
-        </p>
+        </h3></div>
         <a className="bg-gray-700 text-white p-3 mt-20 rounded-md" href={pdf}>
           Download CV
         </a>
