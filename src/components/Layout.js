@@ -3,7 +3,7 @@ import NavBar from "./Navbar";
 
 const Layout = (props) => {
   return (
-    <div className="bg-white h-screen">
+    <div className="flex flex-col bg-white h-screen text-center">
       <NavBar />
       {props.children}
     </div>

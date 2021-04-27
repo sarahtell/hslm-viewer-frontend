@@ -45,11 +45,11 @@ export default function Form({ setData, setIsLoading, loading }) {
   }
 
   return (
-    <form class onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-wrap flex-row">
+    <form className="flex justify-center" onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col w-2/3 flex-wrap">
         {Object.entries(properties).map(([propertyName, props]) => {
           return (
-            <div className="flex flex-col m-5">
+            <div className="flex flex-col m-5 text-left">
               <p className="text-black text-xs">{props.name}</p>
               <input
                 className="border border-solid p-2 rounded-md text"
@@ -73,7 +73,7 @@ export default function Form({ setData, setIsLoading, loading }) {
         })}
 
         <button
-          className="bg-gray-700 text-white p-2 h-30 rounded-md"
+          className="bg-gray-700 text-white p-2 h-30 rounded-md m-20"
           type="submit"
         >
           {loading ? <BeatLoader color="white" loading={true} size={10} /> : <p>Beräkna</p> }
