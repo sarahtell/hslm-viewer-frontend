@@ -1,8 +1,7 @@
 import React from "react";
 import Layout from "./components/Layout";
 import pdf from "./components/cv.pdf";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+
 import { Link } from "react-router-dom";
 
 const LinkElement = (props) => {
@@ -31,11 +30,7 @@ const Startpage = () => {
           Download CV
         </a>
       </div>
-      <div className="flex fixed w-full bottom-0 bg-gray-700 justify-center">
-        <a className="m-5" href="https://www.linkedin.com/in/sarah-tell-90/">
-          <FontAwesomeIcon size={"2x"} icon={faLinkedinIn} color="white" />
-        </a>
-      </div>
+
     </Layout>
   );
 };

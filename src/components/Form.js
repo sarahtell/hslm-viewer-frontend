@@ -4,13 +4,13 @@ import axios from "axios"
 import BeatLoader from "react-spinners/BeatLoader";
 
 
-function getModalProperties(formData) {
+function getModalProperties(formData, setIsLoading) {
     console.log(formData);
     const response = axios
     .post(process.env.REACT_APP_ENDPOINT, {data: formData, headers: {}})
     .then(response => {
       return response.data
-    }).catch(e => console.error(e))
+    }).catch(e => setIsLoading(false))
     return response
 }
 
@@ -26,26 +26,26 @@ export default function Form({ setData, setIsLoading, loading }) {
   
   const onSubmit = async (formData) => {
     setIsLoading(true)
-    const response = await getModalProperties(formData)
+    const response = await getModalProperties(formData, setIsLoading)
     setData(response.data);
     setIsLoading(false);
 
   }
 
   const properties = {
-    bridge_mass: { name: "Massa [kg/m]", value: 18400 },
-    youngs_modulus: { name: "E-modul [Pa]", value: 200e9 },
-    moment_of_inertia: { name: "Tröghetsmoment [m^4]", value: 0.61 },
-    damping_ratio: { name: "Dämpkvot [-]", value: 0.005 },
-    bridge_length: { name: "Längd [m]", value: 42.0 },
-    element_size: { name: "Elementstorlek [m]", value: 0.1 },
-    mode_numbers: { name: "Antal moder [-]", value: 3 },
-    train_speed: { name: "Tåghastighet [m/s]", value: 47 },
-    hslm_number: { name: "Typ av HSLM-tåg [1-10]", value: 4 },
+    bridge_mass: { name: "Mass [kg/m]", value: 18400 },
+    youngs_modulus: { name: "Young's modulus [Pa]", value: 200e9 },
+    moment_of_inertia: { name: <p>Area moment of inertia [m<sup>4</sup>]</p>, value: 0.61 },
+    damping_ratio: { name: "Damping ratio [-]", value: 0.005 },
+    bridge_length: { name: "Length [m]", value: 42.0 },
+    element_size: { name: "Element size [m]", value: 0.1 },
+    mode_numbers: { name: "Number of modes [-]", value: 3 },
+    train_speed: { name: "Train speed [m/s]", value: 47 },
+    hslm_number: { name: "HSLM-train number [1-10]", value: 4 },
   }
 
   return (
-    <form className="flex justify-center" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex " onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col w-2/3 flex-wrap">
         {Object.entries(properties).map(([propertyName, props]) => {
           return (
@@ -57,7 +57,7 @@ export default function Form({ setData, setIsLoading, loading }) {
                 defaultValue={props.value}
                 placeholder={props.value}
                 {...register(propertyName, {
-                  required: "Fält måste vara ifyllt.",
+                  required: "This field is required.",
                   valueAsNumber: true,
                 })}
               />
@@ -73,10 +73,10 @@ export default function Form({ setData, setIsLoading, loading }) {
         })}
 
         <button
-          className="bg-gray-700 text-white p-2 h-30 rounded-md m-20"
+          className="bg-gray-700 text-white p-2 h-30 rounded-md m-20 max-h-10"
           type="submit"
         >
-          {loading ? <BeatLoader color="white" loading={true} size={10} /> : <p>Beräkna</p> }
+          {loading ? <BeatLoader color="white" loading={true} size={10} /> : <p>Calculate</p> }
         </button>
       </div>
     </form>

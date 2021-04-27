@@ -10,30 +10,29 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const Chart = ({ bridge_acceleration, time_vector }) => {
+const Chart = ({ bridge_displacement, time_vector }) => {
   const newData = time_vector.map((time, index) => {
-    return { time: time, acceleration: bridge_acceleration[index] };
+    return { time: time, displacement: bridge_displacement[index] };
   });
 
   return (
-    <ResponsiveContainer width="99%" aspect={3}>
-      <LineChart
-        data={newData}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="time" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="acceleration" stroke="blue" />
-      </LineChart>
-    </ResponsiveContainer>
+        <ResponsiveContainer width="90%" aspect={3}>
+          <LineChart
+            data={newData}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 20,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="time" label={{ value: "Time [s]", position: "center",   dy: 20,  dx: 0}} />
+            <YAxis label={{ value: "Displacement [m]", position: "insideLeft", angle: -90,   dy: 60,  dx: 0}}/>
+            <Tooltip />
+            <Line type="monotone" dataKey="displacement" stroke="blue" yAxis="Displacement" />
+          </LineChart>
+        </ResponsiveContainer>
   );
 };
 
