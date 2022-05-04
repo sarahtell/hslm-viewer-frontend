@@ -5,9 +5,12 @@ import pdf from "./components/cv.pdf";
 import { Link } from "react-router-dom";
 
 const LinkElement = (props) => {
-    return (<Link className="text-gray-700 font-bold" to={props.path}>{props.text}</Link>);
-}
-
+  return (
+    <Link className="text-gray-700 font-bold" to={props.path}>
+      {props.text}
+    </Link>
+  );
+};
 
 const Startpage = () => {
   return (
@@ -23,14 +26,20 @@ const Startpage = () => {
           Sarah Tell
         </h1>
         <h2 className="mt-5 text-4xl justify-center"> I like coding.</h2>
-        <div className="w-full flex justify-center text-center"><h3 className="mt-5 inline-block w-5/6">
-          Head to <LinkElement text="Projects" path="/bridgeresponse"/> to check out my bridge response simulator for passing trains.
-        </h3></div>
+        <div className="w-full flex justify-center text-center">
+          <h3 className="mt-5 inline-block w-5/6">
+            Head to{" "}
+            <LinkElement
+              text="Bridge Response calculator"
+              path="/bridgeresponse"
+            />{" "}
+            to check out my bridge response simulator for passing trains.
+          </h3>
+        </div>
         <a className="bg-gray-700 text-white p-3 mt-20 rounded-md" href={pdf}>
           Download CV
         </a>
       </div>
-
     </Layout>
   );
 };
