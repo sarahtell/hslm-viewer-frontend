@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="bg-gray-700 text-white h-44 flex-col flex md:flex-row md:justify-between items-center w-full overflow-x-hidden">
+    <nav className="bg-gray-700 text-white p-3 flex-col flex md:flex-row md:justify-between items-center w-full overflow-x-hidden">
       <Link className="p-3 whitespace-nowrap md:mx-20" to="/">
         Sarah Tell
       </Link>

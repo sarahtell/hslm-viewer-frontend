@@ -17,7 +17,7 @@ const Startpage = () => {
     <Layout>
       <div className="flex flex-col h-full items-center">
         <img
-          className="w-1/3 max-w-md rounded-full m-10"
+          className="w-1/3 max-w-md rounded-full mt-5"
           src="./Profilepic.jpg"
           alt="SARAH TELL"
         ></img>
@@ -36,7 +36,7 @@ const Startpage = () => {
             to check out my bridge response simulator for passing trains.
           </h3>
         </div>
-        <a className="bg-gray-700 text-white p-3 mt-20 rounded-md" href={pdf}>
+        <a className="bg-gray-700 text-white p-3 mt-5 rounded-md" href={pdf}>
           Download CV
         </a>
       </div>
