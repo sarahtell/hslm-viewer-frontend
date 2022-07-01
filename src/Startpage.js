@@ -28,12 +28,16 @@ const Startpage = () => {
         <h2 className="mt-5 text-4xl justify-center"> I like coding.</h2>
         <div className="w-full flex justify-center text-center">
           <h3 className="mt-5 inline-block w-5/6">
-            Head to{" "}
-            <LinkElement
-              text="Bridge Response calculator"
-              path="/bridgeresponse"
-            />{" "}
-            to check out my bridge response simulator for passing trains.
+            Head to {' '}
+            <a
+              className="whitespace-nowrap underline"
+              href="https://pokemon-remotion.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pokemon fight {' '}
+            </a>
+            to see my Pokemon fight simulator. It's React project which renders videos dynamically depending on user input.
           </h3>
         </div>
         <a className="bg-gray-700 text-white p-3 mt-5 rounded-md" href={pdf}>
